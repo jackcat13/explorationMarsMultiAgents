@@ -9,3 +9,6 @@ class Content:
     '''
     def getName(self):
         return self.name
+
+    def getPhoto(self):
+        return './images/' + self.name + '.png'

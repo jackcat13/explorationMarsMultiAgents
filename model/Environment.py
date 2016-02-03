@@ -1,4 +1,5 @@
 from Empty import Empty
+from Tkinter import *
 
 #Environment class. This class describes the simulation environment in which mars exploration is simulated.
 class Environment:
@@ -8,10 +9,23 @@ class Environment:
         self.height = height
         self.length = length
         #Init all boxes with an empty content in contentTable
-        self.contentTable = [[Empty]*height]*length
+        self.contentTable = [[Empty]*length]*height
         for i in range(height):
             for j in range(length):
-                self.contentTable[i][j] = Empty('0')
+                self.contentTable[i][j] = Empty('empty')
+        self.UI = Tk()
+        self.showEnvironment()
+
+    def showEnvironment(self):
+        img = []
+        cptImg = 0
+        for i in range(self.height):
+            for j in range(self.length):
+                img.append(PhotoImage(file=self.contentTable[i][j].getPhoto()))
+                Label(self.UI, text=self.contentTable[i][j].getName(), image=img[cptImg], height=20, width=20).grid(row=i, column=j)
+                cptImg = cptImg + 1
+            print ''
+        self.UI.mainloop()
 
     '''
     Getters
