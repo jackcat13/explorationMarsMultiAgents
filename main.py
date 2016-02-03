@@ -3,7 +3,7 @@ from functions import *
 
 print 'Simulation begins'
 print 'Height: '
-height = 30
+height = 45
 print 'Length: '
-length = 70
+length = 85
 environment = Environment('MarsExploration', height, length)
